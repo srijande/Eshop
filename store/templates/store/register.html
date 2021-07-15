@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">   
+
+<div  class="login-box">
+  
+  <h2>Register</h2>
+<form method="post">
+        {% csrf_token %}
+        
+      {%for x in form%}
+        <div class="user-box">
+           {{x}}
+           <label>{{x.label}}</label>
+           
+        </div>
+      {%endfor%}
+      {{form.errors}}
+      <a>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <input type="submit" value="Register!">
+      </a>
+      
+  </form> 
+
+</div>
