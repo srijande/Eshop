@@ -64,17 +64,17 @@ class OrderItem(models.Model):
 
 
 
-class ShippingAddress(models.Model):
-    order=models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
-    customer= models.ForeignKey(User,on_delete=models.SET_NULL,null=True,blank=True)
-    address= models.CharField(max_length=200, null=True, blank=True)
-    city= models.CharField(max_length=200, null=True, blank=True)
-    state= models.CharField(max_length=200, null=True, blank=True)
-    pincode= models.CharField(max_length=200, null=True, blank=True)
-    date_added= models.DateTimeField(auto_now_add=True,blank=True)
+# class ShippingAddress(models.Model):
+#     order=models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
+#     customer= models.ForeignKey(User,on_delete=models.SET_NULL,null=True,blank=True)
+#     address= models.CharField(max_length=200, null=True, blank=True)
+#     city= models.CharField(max_length=200, null=True, blank=True)
+#     state= models.CharField(max_length=200, null=True, blank=True)
+#     pincode= models.CharField(max_length=200, null=True, blank=True)
+#     date_added= models.DateTimeField(auto_now_add=True,blank=True)
     
-    def __str__(self):
-       return self.address
+#     def __str__(self):
+#        return self.address
 
 
 
