@@ -105,29 +105,29 @@ def loginpage(request):
           return redirect('store')
      return render(request,'store/login.html',{})
      
-def processOrder(request):
-     transaction_id = datetime.datetime.now().timestamp()
-     data = json.loads(request.body)
-     if request.user.is_authenticated:
-	        customer = request.user
-	        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+# def processOrder(request):
+#      transaction_id = datetime.datetime.now().timestamp()
+#      data = json.loads(request.body)
+#      if request.user.is_authenticated:
+# 	        customer = request.user
+# 	        order, created = Order.objects.get_or_create(customer=customer, complete=False)
      
 		    
-     total = float(data['form']['total'])
-     order.transaction_id = transaction_id
-     if total == order.get_cart_total:
-		                             order.complete = True
-     order.save()
-     ShippingAddress.objects.create(
-		customer=customer,
-		order=order,
-          address=data['shipping']['address'],
-		city=data['shipping']['city'],
-          state=data['shipping']['state'],
-		pincode=data['shipping']['pincode'],
-		)
+#      total = float(data['form']['total'])
+#      order.transaction_id = transaction_id
+#      if total == order.get_cart_total:
+# 		                             order.complete = True
+#      order.save()
+#      ShippingAddress.objects.create(
+# 		customer=customer,
+# 		order=order,
+#           address=data['shipping']['address'],
+# 		city=data['shipping']['city'],
+#           state=data['shipping']['state'],
+# 		pincode=data['shipping']['pincode'],
+# 		)
           
-     return JsonResponse('Payment Submitted',safe=False)
+#      return JsonResponse('Payment Submitted',safe=False)
 
 def register(request):
      form = CreateUserForm() 
